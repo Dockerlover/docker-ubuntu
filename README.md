@@ -12,4 +12,8 @@ Docker化Ubuntu
     git clone https://github.com/Dockerlover/docker-ubuntu.git
     cd docker-ubuntu
     docker build -t docker-ubuntu .
+    
+## 注意事项
+
+- 当国内镜像挂掉，请使用\#号注释掉添加阿里云镜像源命令的所在行。
 
