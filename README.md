@@ -23,7 +23,5 @@ Docker化Ubuntu
 
         docker exec -it ubuntu1 /bin/bash
 
-## 注意事项
 
-- 当国内镜像挂掉，请使用\#号注释掉添加阿里云镜像源命令的所在行。
 
