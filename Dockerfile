@@ -17,7 +17,8 @@ RUN mkdir -p /var/log/supervisor
 # 支持supervisor日志目录挂载
 VOLUME ["/var/log/supervisor"]
 # 配置sshd
-COPY . /var/tmp
+RUN mkdir -p /var/run/sshd
+RUN echo 'root:testpass' | chpasswd
 RUN bin/bash /var/tmp/configure.sh && rm -R /var/tmp
 
 # 暴露sshd端口
