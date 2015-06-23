@@ -16,13 +16,17 @@ Docker化Ubuntu
         cd docker-ubuntu
         docker build -t docker-ubuntu .
 
-- 运行容器
-
-        docker run -it -d --name ubuntu1 -p 22:22 docker-ubuntu
+- 运行容器[run.sh]
+        HOST_IP=$(hostname --all-ip-addresses | awk '{print $1}')
+        docker run -it -d --name ubuntu1 -p 22:22 -e HOST_IP=$HOST_IP docker-ubuntu
 
 - 进入容器
 
         docker exec -it ubuntu1 /bin/bash
+
+- ssh登录容器
+        
+        ssh root@localhost
 
 
 
