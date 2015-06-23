@@ -28,5 +28,7 @@ Docker化Ubuntu
         
         ssh root@localhost
 
+    ssh登录密码`testpass`
+
 
 
