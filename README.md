@@ -6,6 +6,7 @@ Docker化Ubuntu
 - 2015/6/20 使用Ubuntu14.04作为基础镜像
 - 2015/6/20 添加阿里云镜像源
 - 2015/6/20 添加curl、supervisor等工具
+- 2015/6/23 添加sshd工具暴露22端口实现SSH登录
 
 ## 使用方法
 
@@ -17,7 +18,7 @@ Docker化Ubuntu
 
 - 运行容器
 
-        docker run -it -d --name ubuntu1 docker-ubuntu
+        docker run -it -d --name ubuntu1 -p 22:22 docker-ubuntu
 
 - 进入容器
 
