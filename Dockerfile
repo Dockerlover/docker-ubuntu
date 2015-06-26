@@ -18,7 +18,7 @@ VOLUME ["/var/log/supervisor"]
 # 配置sshd
 RUN mkdir -p /var/run/sshd
 RUN echo 'root:testpass' | chpasswd
-RUN bin/bash /var/tmp/configure.sh && rm -R /var/tmp
+RUN /bin/bash /var/tmp/configure.sh && rm -R /var/tmp
 # 暴露sshd端口
 EXPOSE 22
 # 运行supervisord
