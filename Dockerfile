@@ -18,7 +18,7 @@ RUN mkdir -p /var/log/supervisor
 VOLUME ["/var/log/supervisor"]
 # 配置sshd
 RUN mkdir -p /var/run/sshd
-RUN echo 'root:$SSHD_PASS' | chpasswd
+RUN echo 'root:${SSHD_PASS}' | chpasswd
 RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -i 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g'  /etc/pam.d/sshd
 ENV NOTVISIBLE "in users profile"
