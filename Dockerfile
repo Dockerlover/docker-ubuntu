@@ -5,7 +5,7 @@ MAINTAINER  liuhong1.happy@163.com
 # 添加环境变量
 ENV USER_NAME admin
 ENV SERVICE_ID ubuntu
-ENV SSHD_PASS testpass
+ENV SSHD_PASS 'root:testpass'
 # 添加阿里云镜像源
 RUN echo "deb http://mirrors.aliyun.com/ubuntu trusty main restricted" > /etc/apt/sources.list && echo "deb-src http://mirrors.aliyun.com/ubuntu/ trusty main restricted" >> /etc/apt/sources.list && echo "deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted" >> /etc/apt/sources.list && echo "deb-src http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted" >> /etc/apt/sources.list && echo "deb http://mirrors.aliyun.com/ubuntu/ trusty universe" >> /etc/apt/sources.list && echo "deb-src http://mirrors.aliyun.com/ubuntu/ trusty universe" >> /etc/apt/sources.list && echo "deb http://mirrors.aliyun.com/ubuntu/ trusty-updates universe" >> /etc/apt/sources.list && echo "deb-src http://mirrors.aliyun.com/ubuntu/ trusty-updates universe" >> /etc/apt/sources.list && echo "deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted" >> /etc/apt/sources.list && echo "deb-src http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted" >> /etc/apt/sources.list && echo "deb http://mirrors.aliyun.com/ubuntu/ trusty-security universe" >> /etc/apt/sources.list && echo "deb-src http://mirrors.aliyun.com/ubuntu/ trusty-security universe" >> /etc/apt/sources.list
 # 安装curl supervisor openssh-server
@@ -18,7 +18,7 @@ RUN mkdir -p /var/log/supervisor
 VOLUME ["/var/log/supervisor"]
 # 配置sshd
 RUN mkdir -p /var/run/sshd
-RUN echo 'root:${SSHD_PASS}' | chpasswd
+RUN echo ${SSHD_PASS} | chpasswd
 RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -i 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g'  /etc/pam.d/sshd
 ENV NOTVISIBLE "in users profile"
