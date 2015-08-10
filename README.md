@@ -11,29 +11,27 @@ Docker化Ubuntu
 
 ## 直接pull镜像
 
-        docker pull liuhong1happy/docker-ubuntu
+    docker pull liuhong1happy/docker-ubuntu
 
-## 通过代码构建镜像
+## 获取源代码并构建
 
-- 获取代码并构建
-
-        git clone https://github.com/Dockerlover/docker-ubuntu.git
-        cd docker-ubuntu
-        docker build -t docker-ubuntu .
+    git clone https://github.com/Dockerlover/docker-ubuntu.git
+    cd docker-ubuntu
+    docker build -t docker-ubuntu .
 
 ## 运行容器[run.sh]
 
-        docker run -it -d --name ubuntu1 -p 10022:22 docker-ubuntu
+    docker run -it -d --name ubuntu1 -p 10022:22 docker-ubuntu
 
 ## 进入容器
 
-        docker exec -it ubuntu1 /bin/bash
+    docker exec -it ubuntu1 /bin/bash
 
 ## ssh登录容器
         
-        ssh root@localhost -p 10022
+    ssh root@localhost -p 10022
 
-    ssh登录密码`testpass`
+ssh登录密码`testpass`
 
 
 
