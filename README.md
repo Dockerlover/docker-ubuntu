@@ -12,6 +12,7 @@ Docker化Ubuntu
 ## 直接pull镜像
 
     docker pull liuhong1happy/docker-ubuntu
+    docker tag liuhong1happy/docker-ubuntu docker-ubuntu
 
 ## 获取源代码并构建
 
