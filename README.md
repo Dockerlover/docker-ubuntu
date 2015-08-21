@@ -8,6 +8,7 @@ Docker化Ubuntu
 - 2015/6/20 添加curl、supervisor等工具
 - 2015/6/23 添加sshd工具暴露22端口实现SSH登录
 - 2015/8/10 添加build-essential编译工具，依赖docker-ubuntu的镜像不用再安装
+- 2015/8/21 添加git-core unzip，如果派生镜像不需要可以移除掉
 
 ## 直接pull镜像
 
