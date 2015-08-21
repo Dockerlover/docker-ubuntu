@@ -11,7 +11,7 @@ RUN echo "deb http://mirrors.aliyun.com/ubuntu trusty main restricted" > /etc/ap
 # 安装curl supervisor openssh-server
 RUN apt-get update && apt-get install -y supervisor build-essential ca-certificates openssh-server
 # 可选安装包
-RUN apt-get install -y unzip git-core vim curl  && rm -rf /var/lib/apt/lists/*
+RUN apt-get install -y uzip git-core vim curl  && rm -rf /var/lib/apt/lists/*
 # 复制supervisord.conf到容器/etc/supervisor/conf.d目录下
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # 创建supervisor日志目录
