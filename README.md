@@ -3,12 +3,9 @@ Docker化Ubuntu
 
 ## 镜像特点
 
-- 2015/6/20 使用Ubuntu14.04作为基础镜像
-- 2015/6/20 添加阿里云镜像源
-- 2015/6/20 添加curl、supervisor等工具
-- 2015/6/23 添加sshd工具暴露22端口实现SSH登录
-- 2015/8/10 添加build-essential编译工具，依赖docker-ubuntu的镜像不用再安装
-- 2015/8/21 添加git-core unzip，如果派生镜像不需要可以移除掉
+- 划分为生产部署镜像和开发环境镜像，tag分别为pro和dev，lastest则是最新pro镜像。
+- 使用Ubuntu14.04作为基础镜像，pro镜像仅包含supervisor进程管理工具，dev镜像另包含curl、sshd、git-core、unzip等。
+
 
 ## 直接pull镜像
 
@@ -19,17 +16,19 @@ Docker化Ubuntu
 
     git clone https://github.com/Dockerlover/docker-ubuntu.git
     cd docker-ubuntu
-    docker build -t docker-ubuntu .
+    # sh build-pro.sh
+    sh build-dev.sh
 
-## 运行容器[run.sh]
+## 运行容器[dev/pro]
 
-    docker run -it -d --name ubuntu1 -p 10022:22 docker-ubuntu
+    # docker run -it -d --name ubuntu1  docker-ubuntu:pro
+    docker run -it -d --name ubuntu1 -p 10022:22 docker-ubuntu:dev
 
-## 进入容器
+## 进入容器[dev]
 
     docker exec -it ubuntu1 /bin/bash
 
-## ssh登录容器
+## ssh登录容器[dev]
         
     ssh root@localhost -p 10022
 
